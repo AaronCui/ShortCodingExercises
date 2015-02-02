@@ -15,46 +15,47 @@ expected worst-case time complexity is O(N);
 expected worst-case space complexity is O(N) (not counting the storage required for input arguments).
 Copyright 2009–2015 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.*/
 
+#include<cstdlib>
 #include<iostream>
 #include<stack>
+#include<string>
+#include<vector>
 
-
-int solution(string &S) {
+int solution(std::string S) {
     std::stack<char> inQ; 
     for (unsigned int i = 0; i < S.length(); i++){
         if (S[i] == '(' || S[i] == '[' || S[i] == '{')  {
             inQ.push(S[i]);
         }
-        else{
-            if (inQ.empty()){
+        else if (inQ.empty()){
                 return 0;
             }
-            else{
-                if (S[i] == ')'){
-                    if (inQ.top() != '(' ){
-                    return 0;
-                    }  
-                    else{
-                        inQ.pop();
-                    }
-                }
-                if (S[i] == ']'){
-                    if (inQ.top() != '[' ){
-                        return 0;
-                    }
-                    else{
-                        inQ.pop();
-                    }
-                }
-                if (S[i] == '}'){
-                    if(inQ.top() != '{' ){
-                        return 0;
-                    }  
-                    else{
-                        inQ.pop();
-                    }
+        else{
+            if (S[i] == ')'){
+                if (inQ.top() != '(' ){
+					return 0;
+                }  
+                else{
+                    inQ.pop();
                 }
             }
+            if (S[i] == ']'){
+                if (inQ.top() != '[' ){
+                    return 0;
+                }
+                else{
+                    inQ.pop();
+                }
+            }
+            if (S[i] == '}'){
+                if(inQ.top() != '{' ){
+                    return 0;
+                }  
+                else{
+                    inQ.pop();
+                }
+            }
+            
         }
     }
     
@@ -65,3 +66,30 @@ int solution(string &S) {
     return 1;
 
 }
+
+int main() {
+	// this is here simply to run the code, without a pre written code to test it as originally on codility
+	int result;
+	std::string s1 ("()[]{}");
+	std::string s2 ("([{()()}])");
+	std::string s3 ("([{]})");
+	std::string s4 (")()()");
+	std::vector<std::string> errthing;
+	errthing.push_back(s1);
+	errthing.push_back(s2);
+	errthing.push_back(s3);
+	errthing.push_back(s4);
+	std::cout << " Testing: s1 " << s1 << "s2 " << s2 << "s3 " << s3 << "s4 " << s4 << std::endl;
+	for (int i = 0; i < errthing.size(); i++){
+		std::string S = errthing[i];
+		result = solution (S);
+		if (result)
+			std::cout << "Passed" << std::endl;
+		if (!result)
+			std::cout << "Wrong" << std::endl;
+		if (result != 0 && result != 1)
+			std::cout << "something F'd up" << std::endl;
+	}
+	return 0;
+}
+	
