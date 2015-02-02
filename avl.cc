@@ -1,3 +1,5 @@
+//The purpose is to be able to create a tree with nodes that has an insert function and the tree will be automatically balanced into an AVL tree
+
 #include <iostream>
 #include <iomanip>	// provides setw()
 #include <cstdlib>	// provides atoi()
