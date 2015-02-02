@@ -113,44 +113,19 @@ void balance( Node *& x ) {
 	if (height(x->left) - height(x->right) > 1)
 	{
 		if (height(x->left->left) > height(x->left->right))
-			//std::cout<< "right?" <<std::endl;
 			rotateRight(x);
 		else if (height(x->left->left) < height(x->left->right))
-			//std::cout<< "double right?" <<std::endl;
 			doubleRotateRight(x);
 	}
 		
 	else if (height(x->right) - height(x->left) > 1)	
 	{
 		if (height(x->right->right) > height(x->right->left))
-			//std::cout<< "left?" <<std::endl;
 			rotateLeft(x);
 		else if (height(x->right->right) < height(x->right->left))	
-			//std::cout<< "double left?" <<std::endl;
 			doubleRotateLeft(x);
 	} 
-	/*
-	if ( (x->left->height - x->right->height) > 1 )
-	{
-		if (x->left->left->height > x->left->right->height)
-			std::cout<< "right?" <<std::endl;
-			//rotateRight(x);
-		else if (x->left->left->height < x->left->right->height)
-			std::cout<< "double right?" <<std::endl;
-			//doubleRotateRight(x);
-	}
-		
-	else if ( (x->right->height - x->left->height) > 1)
-	{
-		if (x->right->right->height > x->right->left->height)
-			std::cout<< "left?" <<std::endl;
-			//rotateLeft(x);
-		else if (x->right->right->height < x->right->left->height)	
-			std::cout<< "double left?" <<std::endl;
-			//doubleRotateLeft(x);
-	} */
-	
-  // TO BE COMPLETED
+
 }
 
 void insert( int key, Node *& root ) {
