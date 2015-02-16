@@ -1,4 +1,6 @@
 // https://codility.com/demo/results/demo4EP3DN-RYC/
+// Above link shows a recording of my entire time line of completing the code and failing / passing the tests
+// As well as the original piece of code when function is main, due to test cases already set up
 
 //DoubleAce
 //Feb2
@@ -45,10 +47,18 @@ int solution(std::vector<int> &A, std::vector<int> &B) {
 
 int main(){
 	std::cout<< "Testing with [6,5,4,3,2,1],[1,0,0,0,0,0] and [1,2,3,4,5,6],[0,0,0,1,1,1]" <<std::endl;
-	std::vector<int> a1 = {6,5,4,3,2,1};
-	std::vector<int> b1 = {1,0,0,0,0,0};
-	std::vector<int> a2 = {1,2,3,4,5,6};
-	std::vector<int> b2 = {0,0,0,1,1,1};
+	//hard coded, original code has passed much more extensive testing
+	int a1t[6] = {6,5,4,3,2,1};
+	int a2t[6] = {1,0,0,0,0,0};
+	int b1t[6] = {1,2,3,4,5,6};
+	int b2t[6] = {0,0,0,1,1,1};
+	std::vector<int> a1, b1, a2, b2;
+	for (int i = 0; i <6 ; i++){ 
+		a1.push_back(a1t[i]);
+		b1.push_back(b1t[i]);
+		a2.push_back(a2t[i]);
+		b2.push_back(b2t[i]);
+	}
 	std::cout<< "result 1 is: " << solution (a1,b1) << std::endl;
 	std::cout<< "result 2 is: " << solution (a2,b2) << std::endl;
 	return 0;
