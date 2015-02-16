@@ -1,6 +1,6 @@
 // https://codility.com/demo/results/demo4EP3DN-RYC/
-// Above link shows a recording of my entire time line of completing the code and failing / passing the tests
-// As well as the original piece of code when function is main, due to test cases already set up
+// Above link shows the question for this solution is for
+// As well as a recording of my entire time line of completing the code and failing / passing the tests
 
 //DoubleAce
 //Feb2
